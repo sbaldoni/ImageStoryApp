@@ -16,9 +16,10 @@
 
 		<% @story.beats.each do |pic| %><br/>
 
+			<%= image_tag pic.picture.url(:thumb) %>
+
 			<%= "This is Picture ##{@count} for the " + @story.title + " story!" %>
 
-		  <%= image_tag pic.picture.url(:medium) %>
 		    <br/>
 		<% @count+=1 %>
 	<% end %>
