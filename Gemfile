@@ -11,6 +11,10 @@ gem 'rails', '4.1.6'
 
 gem 'pg'
 
+gem 'rails_12factor', group: :production
+
+gem 'unicorn'
+
 gem 'bootstrap-sass', '~> 3.3.1'
 
 # Use SCSS for stylesheets
@@ -46,3 +50,4 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+ruby "2.1.2"
