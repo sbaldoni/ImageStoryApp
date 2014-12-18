@@ -1,0 +1,38 @@
+<div style="margin-left: 2em;">
+
+<h2>Add pictures to existing story...</h2>
+
+<p>
+	<strong>Title:</strong>
+	<%= @story.title %>
+</p>
+<p>
+	<strong>Body:</strong>
+	<%= @story.body %>
+</p>
+
+<br/><br/>
+		<% @count = 1 %>
+
+		<% @story.beats.each do |pic| %><br/>
+
+			<%= "This is Picture ##{@count} for the " + @story.title + " story!" %>
+
+		  <%= image_tag pic.picture.url(:medium) %>
+		    <br/>
+		<% @count+=1 %>
+	<% end %>
+
+	<br/><br/>
+
+<%= form_for([@story, @story.beats.build]) do |f| %>
+
+  	<%= f.file_field :picture %>
+  	<p><br/>
+    	<%= f.submit %>
+  	</p>
+<% end %>
+
+<%= link_to "Edit", edit_story_path(@story) %> | 
+<%= link_to 'Back', stories_path %>
+</div>

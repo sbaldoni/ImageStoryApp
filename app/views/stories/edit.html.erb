@@ -1,0 +1,36 @@
+<div style="margin-left: 2em;">
+<h1>Edit Title and Story!</h1>
+<%= form_for :story, url: story_path(@story), method: :patch do |f| %>
+
+<% if @story.errors.any? %>
+<div id='error_explanation'>
+
+	<h3><%= pluralize(@story.errors.count, "error") %> stopped this story from being saved:</h3>
+	<ul>
+		<% @story.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+	</ul>
+
+</div>
+<% end %>
+
+	<p>
+		<%= f.label :title %><br/>
+		<%= f.text_field :title %>
+	</p>
+
+	<p>
+		<%= f.label :body %><br/>
+		<%= f.text_area :body, style: "height:150px" %>
+	</p>
+
+	<p>
+		<%= f.submit %>
+	</p>
+
+	<%= link_to 'Back', stories_path %>
+
+
+<% end %>
+</div>

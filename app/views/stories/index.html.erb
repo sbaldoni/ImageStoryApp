@@ -1,0 +1,33 @@
+<div style="margin-left: 2em;">
+
+<h1>All Stories</h1>
+	<%= link_to "Write new story", new_story_path %>
+	<% @stories.each do |story| %>
+
+		<h2><%= story.title %></h2> 
+		<p><%= story.body %>
+
+		<br/><br/>
+		<% @count = 1 %>
+
+
+		<% story.beats.each do |pic|%><br/>
+
+		<%= "This is Picture ##{@count} for the " + story.title + " story!" %>
+
+		  <%= image_tag pic.picture.url(:medium) %>
+		    <br/>
+			<% @count+=1 %>
+
+		<% end %>
+
+		<br/><br/>
+
+		<%= link_to "Show", story_path(story) %>
+		<%= link_to "Edit", edit_story_path(story) %>
+		<%= link_to "Destroy", story_path(story), method: :delete, data: { confirm: "Are you sure?"} %>
+		</p>
+
+	<% end %>
+
+</div>
