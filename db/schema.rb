@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20141010003624) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "beats", force: true do |t|
     t.integer  "story_id"
     t.datetime "created_at"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 20141010003624) do
     t.datetime "picture_updated_at"
   end
 
-  add_index "beats", ["story_id"], name: "index_beats_on_story_id"
+  add_index "beats", ["story_id"], name: "index_beats_on_story_id", using: :btree
 
   create_table "stories", force: true do |t|
     t.string   "title"
